@@ -2,10 +2,11 @@
 
 ## Exercise I
 
-a)
+a)  O(n^3)   or   O(n) * O(n) * O(n)
+- the while loop has a runtime of O(n) that is multiplied by itself two more times.
 
 
-b)
+b)  
 
 
 c)
