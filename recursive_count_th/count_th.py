@@ -6,5 +6,15 @@ Your function must utilize recursion. It cannot contain any loops.
 def count_th(word):
     
     # TBC
-    
-    pass
+    def count(word, counter=0):
+
+        if 'th' in word:
+            word = word.replace('th','/',1)
+            print(word, counter)
+            counter += count(word, counter) + 1
+            
+        return counter
+   
+    return count(word)
+
+
