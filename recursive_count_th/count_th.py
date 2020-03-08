@@ -10,7 +10,6 @@ def count_th(word):
 
         if 'th' in word:
             word = word.replace('th','/',1)
-            print(word, counter)
             counter += count(word, counter) + 1
             
         return counter
