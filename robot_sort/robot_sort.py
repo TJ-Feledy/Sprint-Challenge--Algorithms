@@ -95,9 +95,28 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+        while robot can move right:
+            compare item
+            if compare item == None:
+                set light off
+                swap item
+                move right
+            if compare item == 1:
+                set light on
+                move right
+            if compare item == -1:
+                swap item
+                move right
+        while robot can move left:
+            if light is on == false:
+                return
+            else:
+                move left
+        sort()
         """
         # Fill this out
-        pass
+        
+        
 
 
 if __name__ == "__main__":
