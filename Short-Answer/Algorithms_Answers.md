@@ -16,3 +16,37 @@ c)  O(n) or O(bunnies)
 ## Exercise II
 
 
+findFloor function takes the arguments of 'n' which is num of floors of building and 'f' which is the target floor:
+    currentFloor = 0
+    previousFloor = 0
+    floors = [return floor # for each floor in range of n]
+    midpoint = length of floors//2
+    left = floors[previousFloor:midpoint]
+    right = floors[midpoint:]
+
+    if the currentFloor == f:
+        return f
+    
+    while currentFloor is less than left[length of left -1]:
+        if currentFloor is greater than f:
+            floors = floors[previousFloor:currentFloor]
+            return floors
+
+        previousFloor = currentFloor
+        currentFloor = currentFloor * 2
+
+        return currentFloor
+         
+    while currentFloor is less than right[length of right -1]:
+        if currentFloor is greater than f:
+            floors = floors[previousFloor:currentFloor]
+            return floors
+
+        previousFloor = currentFloor
+        currentFloor = currentFloor * 2
+
+        return currentFloor
+    
+    return f
+
+    ***RUNTIME COMPLEXITY = O(log(n))*** -- i think lol
