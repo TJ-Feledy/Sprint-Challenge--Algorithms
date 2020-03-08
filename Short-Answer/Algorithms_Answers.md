@@ -2,8 +2,8 @@
 
 ## Exercise I
 
-a)  O(n^3)   or   O(n) * O(n) * O(n)
-- the while loop has a runtime of O(n) that is multiplied by itself two more times.
+a)  O(n)
+- 'a' is multiplied by 'n * n' which cancels out with the 'n * n * n' to give the runtime of O(n).
 
 
 b)  
