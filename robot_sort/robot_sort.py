@@ -95,51 +95,83 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+
+        turn off the light (to reset the switch before each loop)
+
         while robot can move right:
-            compare item
-            if compare item == None:
-                set light off
-                swap item
-                move right
-            if compare item == 1:
-                set light on
-                move right
-            if compare item == -1:
-                swap item
-                move right
-        while robot can move left:
-            if light is on == false:
-                return
-            else:
+            pick up current item
+            move right
+
+            if compare item == 1: (smaller than mine)
+                set light on (showing had to sort)
+                pick up item
                 move left
-        sort()
+                put down item
+                move right
+
+        if the light is off: (nothing was sorted - done)
+            return
+
+        set light off (to reset the switch)
+        move left (because right is biggest)
+
+        while robot can move left:
+            pick up item
+            move left
+
+            if compare item == -1: (larger than mine)
+                set light on (showing had to sort)
+                pick up item
+                move right
+                put down item
+                move left
+                
+        if the light is off: (nothing was sorted - done)
+            return
         """
         # Fill this out
-        while self.can_move_right():
-            compare = self.compare_item()
-            if compare == None:
-                self.set_light_off()
+        while True:
+            self.set_light_off()
+
+            while self.can_move_right():
+
                 self.swap_item()
-                self.move_right()
-            if compare == 1:
-                self.set_light_on()
-                self.move_right()
-            if compare == -1:
-                self.swap_item()
-                self.move_right()
-            if compare == 0:
                 self.move_right()
 
-        while self.can_move_left():
-            compare = self.compare_item()
+                if self.compare_item() == 1:
+                    self.set_light_on()
+                    self.swap_item()
+                    
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+
+            if self.light_is_on() == False:
+                    return
+
+
+
+            self.set_light_off()
+
+            self.move_left()
+
+            while self.can_move_left():
+
+                self.swap_item()
+                self.move_left()
+
+                if self.compare_item() == -1:
+                    self.set_light_on()
+                    self.swap_item()
+
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+
             if self.light_is_on() == False:
                 return
-            else:
-                self.move_left()
-                
-        self.sort()
         
-        return
+        
         
 
 
