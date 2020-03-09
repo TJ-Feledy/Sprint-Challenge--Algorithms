@@ -115,7 +115,31 @@ class SortingRobot:
         sort()
         """
         # Fill this out
+        while self.can_move_right():
+            compare = self.compare_item()
+            if compare == None:
+                self.set_light_off()
+                self.swap_item()
+                self.move_right()
+            if compare == 1:
+                self.set_light_on()
+                self.move_right()
+            if compare == -1:
+                self.swap_item()
+                self.move_right()
+            if compare == 0:
+                self.move_right()
+
+        while self.can_move_left():
+            compare = self.compare_item()
+            if self.light_is_on() == False:
+                return
+            else:
+                self.move_left()
+                
+        self.sort()
         
+        return
         
 
 
